@@ -30,7 +30,7 @@ class SearchBox extends StatelessWidget {
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
           icon: SvgPicture.asset("assets/icons/search.svg"),
-          hintText: 'Search',
+          hintText: 'Search by blood group or city',
           hintStyle: TextStyle(color: Colors.white),
         ),
       ),

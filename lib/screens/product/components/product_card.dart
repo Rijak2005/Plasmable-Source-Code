@@ -100,7 +100,7 @@ class ProductCard extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "\$${product.price}",
+                        "${product.price}",
                         style: Theme.of(context).textTheme.button,
                       ),
                     ),

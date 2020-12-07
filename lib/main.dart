@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
-import 'package:furniture_app/screens/product/products_screen.dart';
+import 'package:furniture_app/screens/logoScreen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Furniture app',
+      title: 'Plasmable',
       theme: ThemeData(
         // We set Poppins as our default font
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         accentColor: kPrimaryColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ProductsScreen(),
+      home: LogoScreen(),
     );
   }
 }

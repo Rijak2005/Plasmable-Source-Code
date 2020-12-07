@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/models/product.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../../constants.dart';
+import '../../../constants.dart';
 import 'chat_and_add_to_cart.dart';
-import 'list_of_colors.dart';
+//import 'list_of_colors.dart';
 import 'product_image.dart';
 
 class Body extends StatelessWidget {
@@ -43,7 +46,6 @@ class Body extends StatelessWidget {
                       ),
                     ),
                   ),
-                  ListOfColors(),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: kDefaultPadding / 2),
@@ -52,13 +54,71 @@ class Body extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
-                  Text(
-                    '\$${product.price}',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: kSecondaryColor,
-                    ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.water_damage_outlined,
+                        color: kPrimaryColor,
+                        size: 23.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        '${product.price}',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: kSecondaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: kDefaultPadding / 3,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.location_on_outlined,
+                        color: kPrimaryColor,
+                        size: 23.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        '${product.location}',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: kSecondaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: kDefaultPadding / 3,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.local_hospital_outlined,
+                        color: kPrimaryColor,
+                        size: 23.0,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        'Recovered ${product.recovered} ago',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: kSecondaryColor,
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding:
@@ -72,7 +132,9 @@ class Body extends StatelessWidget {
                 ],
               ),
             ),
-            ChatAndAddToCart(),
+            ChatAndAddToCart(
+              product: product,
+            ),
           ],
         ),
       ),

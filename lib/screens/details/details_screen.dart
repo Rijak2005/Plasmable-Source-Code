@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:furniture_app/components/my_nav_bar.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/models/product.dart';
 
@@ -36,12 +37,6 @@ class DetailsScreen extends StatelessWidget {
         'Back'.toUpperCase(),
         style: Theme.of(context).textTheme.bodyText2,
       ),
-      actions: <Widget>[
-        IconButton(
-          icon: SvgPicture.asset('assets/icons/cart_with_item.svg'),
-          onPressed: () {},
-        ),
-      ],
     );
   }
 }

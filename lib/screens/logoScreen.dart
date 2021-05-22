@@ -7,10 +7,9 @@ import 'package:furniture_app/screens/dataScreen/data.dart';
 import 'package:furniture_app/screens/splash_screen/splash_screen.dart'
     as realSc;
 import 'package:furniture_app/screens/splash_screen/splash_screen.dart';
-import 'package:furniture_app/sizeConfigSplash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../constant2.dart';
+import '../sizeConfigSplash.dart';
 // import 'package:splashscreen/splashscreen.dart';
 
 class LogoScreen extends StatefulWidget {
@@ -28,6 +27,7 @@ class _LogoScreenState extends State<LogoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return WillPopScope(
       onWillPop: () async {
         return false;
@@ -40,7 +40,7 @@ class _LogoScreenState extends State<LogoScreen> {
             children: [
               Image.asset(
                 "assets/images/g1177.png",
-                scale: 10.0,
+                scale: getProportionateScreenWidth(11.0),
               ),
             ],
           ),

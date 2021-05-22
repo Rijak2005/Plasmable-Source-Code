@@ -23,7 +23,7 @@ const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
 
 final headingStyle = TextStyle(
-  fontSize: getProportionateScreenWidth(28),
+  fontSize: getProportionateScreenWidth(19),
   fontWeight: FontWeight.bold,
   color: Colors.black,
   height: 1.5,

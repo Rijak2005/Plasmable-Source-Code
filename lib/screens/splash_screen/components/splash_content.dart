@@ -21,7 +21,7 @@ class SplashContent extends StatelessWidget {
           child: Text(
             "Plasmable",
             style: TextStyle(
-              fontSize: getProportionateScreenWidth(36),
+              fontSize: getProportionateScreenWidth(34),
               color: kPrimaryColor,
               fontWeight: FontWeight.bold,
             ),
@@ -32,12 +32,13 @@ class SplashContent extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
+            style: TextStyle(fontSize: getProportionateScreenWidth(13)),
           ),
         ),
         Spacer(flex: 2),
         Image.asset(
           image,
-          height: getProportionateScreenHeight(290),
+          height: getProportionateScreenHeight(278),
           width: getProportionateScreenWidth(390),
         ),
       ],

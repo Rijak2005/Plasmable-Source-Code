@@ -31,7 +31,7 @@ class Body extends StatelessWidget {
                   ),
                 ),
                 ListView.builder(
-                  // here we use our demo procuts list
+                  // here we use procuts list
                   itemCount: products.length,
                   itemBuilder: (context, index) => ProductCard(
                     itemIndex: index,

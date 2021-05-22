@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:furniture_app/components/my_nav_bar.dart';
 import 'package:furniture_app/screens/dataScreen/data.dart';
+import 'package:furniture_app/sizeConfigSplash.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../constant2.dart';
@@ -111,13 +112,13 @@ class _InfoScreenState extends State<InfoScreen> {
                     ),
                     PreventCard(
                       text:
-                          "Washing your hands for a minimum of 20 seconds is recommended.",
+                          "Washing your hands regularly for 20 seconds is advised.",
                       image: "assets/images/wash_hands.png",
                       title: "Wash your hands",
                     ),
                     PreventCard2(
                       text:
-                          "You should a minimum of 2m away from people you come in contact with",
+                          "Maintain a minimum distance of 2m from other people",
                       image: "assets/images/social-distancing.png",
                       title: "Social Distancing",
                     ),
@@ -190,7 +191,7 @@ class PreventCard extends StatelessWidget {
             Positioned(
               left: 130,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                 height: 136,
                 width: MediaQuery.of(context).size.width - 170,
                 child: Column(
@@ -200,16 +201,16 @@ class PreventCard extends StatelessWidget {
                     Text(
                       title,
                       style: kTitleTextstyle.copyWith(
-                        fontSize: 16,
+                        fontSize: getProportionateScreenWidth(16),
                       ),
                     ),
                     Expanded(
                       child: Text(
                         text,
-                        maxLines: 4,
+                        maxLines: 6,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: getProportionateScreenWidth(12),
                         ),
                       ),
                     ),
@@ -283,16 +284,16 @@ class PreventCard2 extends StatelessWidget {
                     Text(
                       title,
                       style: kTitleTextstyle.copyWith(
-                        fontSize: 16,
+                        fontSize: getProportionateScreenWidth(16),
                       ),
                     ),
                     Expanded(
                       child: Text(
                         text,
-                        maxLines: 4,
+                        maxLines: 7,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: getProportionateScreenWidth(12),
                         ),
                       ),
                     ),

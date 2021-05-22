@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furniture_app/sizeConfigSplash.dart';
 
 // Colors
 const kBackgroundColor = Color(0xFFFEFEFE);
@@ -13,15 +14,16 @@ final kShadowColor = Color(0xFFB7B7B7).withOpacity(.16);
 final kActiveShadowColor = Color(0xFFE11215).withOpacity(.15);
 
 // Text Style
-const kHeadingTextStyle = TextStyle(
-  fontSize: 16,
+var kHeadingTextStyle = TextStyle(
+  fontSize: getProportionateScreenWidth(16.0),
   fontWeight: FontWeight.w600,
 );
 
-const kSubTextStyle = TextStyle(fontSize: 16, color: kTextLightColor);
+var kSubTextStyle = TextStyle(
+    fontSize: getProportionateScreenWidth(16.0), color: kTextLightColor);
 
-const kTitleTextstyle = TextStyle(
-  fontSize: 18,
+var kTitleTextstyle = TextStyle(
+  fontSize: getProportionateScreenWidth(18.0),
   color: kTitleTextColor,
   fontWeight: FontWeight.bold,
 );

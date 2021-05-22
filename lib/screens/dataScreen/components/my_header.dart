@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:furniture_app/sizeConfigSplash.dart';
 
 import '../../../constant2.dart';
 
@@ -67,7 +68,7 @@ class _MyHeaderState extends State<MyHeader> {
                       "${widget.textTop} \n${widget.textBottom}",
                       style: kHeadingTextStyle.copyWith(
                         color: Colors.white,
-                        fontSize: 16.5,
+                        fontSize: getProportionateScreenWidth(15.0),
                       ),
                     ),
                   ),

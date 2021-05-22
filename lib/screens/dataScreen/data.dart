@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:furniture_app/components/my_nav_bar.dart';
-import 'package:furniture_app/screens/dataScreen/info_screen.dart';
+import 'package:furniture_app/sizeConfigSplash.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 
@@ -124,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     SizedBox(height: 20),
                     Container(
-                      padding: EdgeInsets.all(20),
+                      padding: EdgeInsets.all(14.2),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.white,
@@ -149,7 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     return Text(
                                       "${snapshot.data.confirmed}",
                                       style: TextStyle(
-                                        fontSize: 22,
+                                        fontSize:
+                                            getProportionateScreenWidth(20.0),
                                         color: kInfectedColor,
                                       ),
                                     );
@@ -157,7 +156,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     return Text(
                                       "N.A.",
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.06,
                                         color: kInfectedColor,
                                       ),
                                     );
@@ -171,6 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             title: "Infected",
                           ),
+                          SizedBox(width: getProportionateScreenWidth(12)),
                           Counter(
                             color: kDeathColor,
                             number: FutureBuilder<DataModel>(
@@ -180,7 +182,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   return Text(
                                     "${snapshot.data.deaths}",
                                     style: TextStyle(
-                                      fontSize: 22,
+                                      fontSize:
+                                          getProportionateScreenWidth(20.0),
                                       color: kDeathColor,
                                     ),
                                   );
@@ -188,7 +191,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   return Text(
                                     "N.A.",
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.06,
                                       color: kDeathColor,
                                     ),
                                   );
@@ -201,6 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             title: "Deaths",
                           ),
+                          SizedBox(width: getProportionateScreenWidth(12)),
                           Counter(
                             color: kRecovercolor,
                             number: FutureBuilder<DataModel>(
@@ -210,7 +216,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   return Text(
                                     "${snapshot.data.recovered}",
                                     style: TextStyle(
-                                      fontSize: 22,
+                                      fontSize:
+                                          getProportionateScreenWidth(20.0),
                                       color: kRecovercolor,
                                     ),
                                   );
@@ -218,7 +225,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   return Text(
                                     "N.A.",
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.06,
                                       color: kRecovercolor,
                                     ),
                                   );
@@ -275,7 +284,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child: Image.asset(
                         "assets/images/map.png",
-                        width: 300.0,
+                        width: getProportionateScreenWidth(300.0),
                       ),
                     ),
                   ],
@@ -297,14 +306,14 @@ class DataModel {
 
   factory DataModel.convertToObject(var json) {
     return DataModel(
-        confirmed: json["confirmed"],
-        deaths: json["deaths"],
-        recovered: json["recovered"]);
+        confirmed: json["data"]["summary"]["total"],
+        deaths: json["data"]["summary"]["deaths"],
+        recovered: json["data"]["summary"]["discharged"]);
   }
 }
 
 Future<DataModel> fetchData() async {
-  var url = "https://api.covidindiatracker.com/total.json";
+  var url = "https://api.rootnet.in/covid19-in/stats/latest";
   var response = await http.get(url);
   if (response.statusCode == 200) {
     var responseJson = jsonDecode(response.body);

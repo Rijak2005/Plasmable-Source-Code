@@ -1,6 +1,6 @@
 # Plasmable
 
-## A Team7 project
+## by Rijak Singh
 
 **Packages we are using:**
 
